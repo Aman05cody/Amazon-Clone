@@ -38,7 +38,7 @@ Check out the live demo at [Your Live Demo URL]
 
 - HTML
 - CSS
-- JavaScript (ES6+)
+- JavaScript 
 - Local Storage for data persistence
 - Modular JavaScript with ES6 Modules
 
@@ -54,7 +54,7 @@ Check out the live demo at [Your Live Demo URL]
    cd Amazon-Clone
    ```
 
-3. Open `amazon.html` in your browser to view the project.
+3. Open `index.html` in your browser to view the project.
 
 ## 📱 Screenshots
 
@@ -73,7 +73,7 @@ The home page features:
 ```
 Amazon-Clone/
 │
-├── amazon.html              # Main product listing page
+├── index.html              # Main product listing page
 ├── checkout.html           # Checkout page
 ├── orders.html            # Order history page
 ├── tracking.html          # Order tracking page
