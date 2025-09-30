@@ -158,7 +158,50 @@
 .track-package-button {
   width: 100%;
   font-size: 15px;
-  padding: 8px;
+  padding: 10px 15px;
+  background-color: rgb(37 51 70);;
+  color: white;
+  border: 1px solid #007185;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.track-package-button:hover {
+  background-color:rgb(37 51 70);
+  border-color: #00647a;
+}
+
+.track-package-button:active {
+  background-color:rgb(37 51 70);
+  border-color: #004b5c;
+}
+
+.cancel-order-button {
+  width: 100%;
+  font-size: 15px;
+  padding: 10px 15px;
+  background-color: #fff;
+  color: #c41e3a;
+  border: 1px solid #c41e3a;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-weight: 500;
+  text-align: center;
+}
+
+.cancel-order-button:hover {
+  background-color: #ffd1d1;
+}
+
+.cancel-order-button:active {
+  background-color: #ffbaba;
 }
 
 @media (max-width: 800px) {

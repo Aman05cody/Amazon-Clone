@@ -81,3 +81,6 @@ document.querySelectorAll('.js-add-to-cart')
         updateCartQuantity();
         });
 });
+
+// Update cart quantity on initial page load
+updateCartQuantity();

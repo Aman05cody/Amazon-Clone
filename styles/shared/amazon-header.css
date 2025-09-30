@@ -3,16 +3,16 @@
   color: white;
   padding-left: 15px;
   padding-right: 15px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 60px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  z-index: 100;
 }
 
 .amazon-header-left-section {
@@ -27,15 +27,18 @@
 
 .header-link {
   display: inline-block;
-  padding: 6px;
+  padding: 6px 10px;
   border-radius: 2px;
   cursor: pointer;
   text-decoration: none;
   border: 1px solid rgba(0, 0, 0, 0);
+  transition: background 0.15s, border 0.15s, color 0.15s;
 }
 
-.header-link:hover {
+.header-link:hover, .cart-link:hover {
   border: 1px solid white;
+  background: rgba(255,255,255,0.08);
+  color: #ffd814;
 }
 
 .amazon-logo {
@@ -123,6 +126,22 @@
   display: flex;
   align-items: center;
   position: relative;
+  transition: background 0.15s, color 0.15s;
+}
+.amazon-header-greeting {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  margin-right: 0;
+}
+.subtle-greeting {
+  color: #ddd;
+  margin-right: 18px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.1px;
 }
 
 .cart-icon {

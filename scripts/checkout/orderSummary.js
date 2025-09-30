@@ -121,18 +121,35 @@ export function renderOrderSummary(){
         document.querySelector('.js-order-summary')
         .innerHTML= cartSummaryHTML;
 
+
         document.querySelectorAll('.js-delete-link')
         .forEach((link) => {
             link.addEventListener('click', () =>{
                 const productId = link.dataset.productId;
                 removeFromCart(productId);
-                
                 const container = document.querySelector(
                     `.js-cart-item-container-${productId}`
                 );
                 container.remove();
-
                 renderPaymentSummary();
+            });
+        });
+
+        document.querySelectorAll('.update-quantity-link')
+        .forEach((link) => {
+            link.addEventListener('click', () => {
+                const container = link.closest('.cart-item-container');
+                const productId = container.className.match(/js-cart-item-container-([\w-]+)/)[1];
+                const currentQty = container.querySelector('.quantity-label').textContent;
+                let newQty = prompt('Enter new quantity:', currentQty);
+                newQty = parseInt(newQty);
+                if (newQty && newQty > 0) {
+                    import('../../data/cart.js').then(({updateQuantity}) => {
+                        updateQuantity(productId, newQty);
+                        renderOrderSummary();
+                        renderPaymentSummary();
+                    });
+                }
             });
         });
 
