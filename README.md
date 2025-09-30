@@ -36,8 +36,8 @@ Check out the live demo at [Your Live Demo URL]
 
 ## 🛠️ Technologies Used
 
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript (ES6+)
 - Local Storage for data persistence
 - Modular JavaScript with ES6 Modules
