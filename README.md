@@ -164,6 +164,7 @@ This project is available for use under the MIT License.
 
 ## 🌟 Acknowledgments
 
+- Special thanks to [SuperSimpleDev](https://www.youtube.com/@SuperSimpleDev) for his excellent JavaScript tutorial that helped immensely in building this project
 - Inspired by Amazon's user interface
 - Icons and some images from Amazon's website
 - Built as a learning project to demonstrate front-end development skills
