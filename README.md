@@ -2,6 +2,8 @@
 
 A fully responsive Amazon clone built with HTML, CSS, and JavaScript. This project replicates core features of Amazon's e-commerce platform.
 
+🌐 **Live Demo:** [Amazon Clone](https://amazon-clone-webs.netlify.app)
+
 ![Amazon Clone Screenshot](images/amazon-logo.png)
 
 ## 🌟 Features
@@ -69,35 +71,64 @@ The home page features:
 Amazon-Clone/
 │
 ├── index.html              # Main product listing page
-├── checkout.html           # Checkout page
-├── orders.html            # Order history page
-├── tracking.html          # Order tracking page
+├── amazon.html            # Backup of main page
+├── checkout.html          # Checkout page
+├── orders.html           # Order history page
+├── tracking.html         # Order tracking page
 │
 ├── styles/
-│   ├── shared/           # Shared styles
+│   ├── shared/          # Shared styles
 │   │   ├── general.css
 │   │   └── amazon-header.css
 │   │
-│   └── pages/            # Page-specific styles
+│   └── pages/           # Page-specific styles
+│       ├── checkout/    # Checkout-specific styles
+│       │   ├── checkout-header.css
+│       │   └── checkout.css
 │       ├── amazon.css
 │       ├── orders.css
 │       └── tracking.css
 │
 ├── scripts/
-│   ├── amazon.js         # Main product listing logic
-│   ├── checkout.js       # Checkout functionality
-│   ├── orders.js         # Order management
-│   └── tracking.js       # Order tracking logic
-│
+│   ├── amazon.js        # Main product listing logic
+│   ├── checkout.js      # Main checkout logic
+│   ├── checkout/        # Checkout components
+│   │   ├── checkoutHeader.js
+│   │   ├── orderSummary.js
+│   │   └── paymentSummary.js
+│   ├── orders.js        # Order management
+│   ├── tracking.js      # Order tracking logic
+│   └── utils/          # Utility functions
+│       └── money.js    # Currency formatting utilities
+│ 
 ├── data/
-│   ├── products.js       # Product data
-│   ├── cart.js          # Cart management
-│   └── orders.js        # Order data
+│   ├── products.js      # Product data
+│   ├── cart.js         # Cart management
+│   ├── orders.js       # Order data
+│   └── deliveryOptions.js # Delivery options data
 │
-└── images/              # Project images and assets
-    ├── products/
-    ├── icons/
-    └── amazon-logo.png
+├── backend/
+│   └── products.json   # Backend product data
+│
+├── images/             # Project images and assets
+│   ├── amazon-logo.png
+│   ├── amazon-logo-white.png
+│   ├── amazon-mobile-logo.png
+│   ├── amazon-mobile-logo-white.png
+│   ├── favicon/       # Favicon assets
+│   │   └── amazon-favicon.png
+│   ├── products/      # Product images
+│   │   └── [Various product images]
+│   ├── icons/         # UI icons
+│   │   ├── cart-icon.png
+│   │   ├── buy-again.png
+│   │   ├── checkmark.png
+│   │   ├── hamburger-menu.png
+│   │   ├── search-icon.png
+│   │   └── checkout-lock-icon.png
+│   └── ratings/       # Rating images
+│
+└── .gitignore         # Git ignore file
 ```
 
 ## 🔥 Features in Detail
