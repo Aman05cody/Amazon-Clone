@@ -56,10 +56,6 @@ Check out the live demo at [Your Live Demo URL]
 
 3. Open `amazon.html` in your browser to view the project.
 
-## 📱 Screenshots
-
-[Add your screenshots here]
-
 ## 🗂️ Project Structure
 
 ```
