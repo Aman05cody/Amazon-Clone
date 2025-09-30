@@ -58,7 +58,15 @@ Check out the live demo at [Your Live Demo URL]
 
 ## 📱 Screenshots
 
-[Add your screenshots here]
+### Home Page
+![Amazon Clone Home Page](images/screenshots/home-page.png)
+
+The home page features:
+- Responsive product grid layout
+- Product cards with images, titles, and prices
+- Rating system with star display
+- Add to Cart functionality
+- Quantity selection for each product
 
 ## 🗂️ Project Structure
 
