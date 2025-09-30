@@ -30,10 +30,6 @@ A fully responsive Amazon clone built with HTML, CSS, and JavaScript. This proje
   - Cancel orders
   - Real-time delivery tracking
 
-## 🚀 Live Demo
-
-Check out the live demo at [Your Live Demo URL]
-
 ## 🛠️ Technologies Used
 
 - HTML
@@ -67,7 +63,6 @@ The home page features:
 - Rating system with star display
 - Add to Cart functionality
 - Quantity selection for each product
-
 ## 🗂️ Project Structure
 
 ```
