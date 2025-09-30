@@ -38,7 +38,7 @@ Check out the live demo at [Your Live Demo URL]
 
 - HTML
 - CSS
-- JavaScript (ES6+)
+- JavaScript 
 - Local Storage for data persistence
 - Modular JavaScript with ES6 Modules
 
