@@ -10,5 +10,11 @@ export function formatCurrency(priceCents) {
   const priceInRupees = (priceCents / 100) * CENTS_TO_RUPEES_CONVERSION_RATE;
   
   // Use Intl.NumberFormat for proper currency formatting.
-  return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(priceInRupees);
+  // We'll round to the nearest Rupee by setting fraction digits to 0.
+  return new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  }).format(priceInRupees);
 }

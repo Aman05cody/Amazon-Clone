@@ -3,15 +3,15 @@ export let cart = JSON.parse(localStorage.getItem('cart')) || [];
 export function saveToStorage(){
     localStorage.setItem('cart', JSON.stringify(cart));
 }
-export function addToCart(productId){
+export function addToCart(productId, quantity){
         const matchingItem = cart.find(cartItem => cartItem.productId === productId);
 
         if(matchingItem){
-            matchingItem.quantity += 1;
+            matchingItem.quantity += quantity;
         } else {
             cart.push({
                 productId: productId,
-                quantity: 1,
+                quantity: quantity,
                 deliveryOptionId: '1'
              });
         }

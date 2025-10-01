@@ -1,11 +1,27 @@
 import {cart, addToCart} from '../data/cart.js';
-import {products} from '../data/products.js';
+import {products, getProduct} from '../data/products.js';
 import { formatCurrency } from './utils/currency.js';
 
-let productsHTML = '';
+const url = new URL(window.location.href);
+const searchTerm = url.searchParams.get('search');
 
-products.forEach((product) => {
-    productsHTML += `
+let filteredProducts = products;
+
+if (searchTerm) {
+  filteredProducts = products.filter((product) => {
+    const nameMatch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const keywordMatch = product.keywords.some(keyword => keyword.toLowerCase().includes(searchTerm.toLowerCase()));
+    return nameMatch || keywordMatch;
+  });
+}
+
+renderProductsGrid(filteredProducts);
+
+function renderProductsGrid(productsToRender) {
+  let productsHTML = '';
+
+  productsToRender.forEach((product) => {
+      productsHTML += `
     <div class="product-container">
           <div class="product-image-container">
             <img class="product-image"
@@ -29,7 +45,7 @@ products.forEach((product) => {
           </div>
 
           <div class="product-quantity-container">
-            <select>
+            <select class="js-quantity-selector-${product.id}">
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -56,14 +72,12 @@ products.forEach((product) => {
           </button>
         </div>
 `;
+  });
 
-});
+  document.querySelector('.js-products-grid').innerHTML = productsHTML;
+}
 
-document.querySelector('.js-products-grid').innerHTML = productsHTML;
-
-
-
-
+// This function needs to be accessible to the whole script
 function updateCartQuantity(){
     let cartQuantity = 0;
         cart.forEach((cartItem) => {
@@ -76,8 +90,12 @@ document.querySelectorAll('.js-add-to-cart')
 .forEach((button) => {
     button.addEventListener('click', () => {
         const productId = button.dataset.productId;
+        const quantitySelector = document.querySelector(
+          `.js-quantity-selector-${productId}`
+        );
+        const quantity = Number(quantitySelector.value);
 
-        addToCart(productId);
+        addToCart(productId, quantity);
         updateCartQuantity();
         });
 });
