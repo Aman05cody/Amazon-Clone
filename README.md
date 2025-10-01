@@ -60,6 +60,7 @@ A fully responsive Amazon clone built with HTML, CSS, and JavaScript. This proje
 Amazon-Clone/
 │
 ├── index.html              # Main product listing page
+├── amazon.html            # Backup Main Page 
 ├── checkout.html          # Checkout page
 ├── orders.html           # Order history page
 ├── tracking.html         # Order tracking page
