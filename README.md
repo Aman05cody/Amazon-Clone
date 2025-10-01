@@ -54,17 +54,6 @@ A fully responsive Amazon clone built with HTML, CSS, and JavaScript. This proje
 
 3. Open `index.html` in your browser to view the project.
 
-## 📱 Screenshots
-
-### Home Page
-![Amazon Clone Home Page](images/screenshots/home-page.png)
-
-The home page features:
-- Responsive product grid layout
-- Product cards with images, titles, and prices
-- Rating system with star display
-- Add to Cart functionality
-- Quantity selection for each product
 ## 🗂️ Project Structure
 
 ```
