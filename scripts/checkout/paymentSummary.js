@@ -20,13 +20,18 @@ export function renderPaymentSummary() {
   const taxCents = totalBeforeTaxCents * 0.1;
   const totalCents = totalBeforeTaxCents + taxCents;
 
+  let cartQuantity = 0;
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+
   const paymentSummaryHTML = `
     <div class="payment-summary-title">
       Order Summary
     </div>
 
     <div class="payment-summary-row">
-      <div>Items (3):</div>
+      <div>Items (${cartQuantity}):</div>
       <div class="payment-summary-money">
         $${formatCurrency(productPriceCents)}
       </div>
@@ -73,7 +78,15 @@ export function renderPaymentSummary() {
     .addEventListener('click', () => {
       // Always use the latest cart from localStorage to avoid stale data
       const latestCart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      if (latestCart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+      }
+
       addOrder(latestCart);
+      // Clear the cart after placing the order
+      localStorage.removeItem('cart');
       // Force reload with cache-busting query string to ensure fresh orders
       window.location.href = 'orders.html?ts=' + Date.now();
     });

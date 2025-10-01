@@ -1,5 +1,5 @@
 import { getProduct } from '../data/products.js';
-import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
+import { cart } from '../data/cart.js';
 
 function getOrders() {
   return JSON.parse(localStorage.getItem('orders')) || [];
@@ -25,7 +25,17 @@ function getTrackingStatus(orderDate, estimatedDeliveryDate) {
   return { steps, currentStepIndex };
 }
 
+function updateCartQuantity() {
+  let cartQuantity = 0;
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+  const cartQuantityElem = document.querySelector('.js-cart-quantity');
+  if (cartQuantityElem) cartQuantityElem.textContent = cartQuantity;
+}
+
 async function loadPage() {
+  updateCartQuantity();
   const trackingContainer = document.querySelector('.js-order-tracking');
   const orderId = sessionStorage.getItem('trackOrderId');
   const productId = sessionStorage.getItem('trackProductId');

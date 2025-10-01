@@ -1,23 +1,21 @@
-// import { getProduct } from '../data/products.js';
+import { getProduct } from '../data/products.js';
+import { cart } from '../data/cart.js';
 
 function getOrders() {
   return JSON.parse(localStorage.getItem('orders')) || [];
 }
 
-function updateCartQuantityToOrders() {
-  const orders = getOrders();
-  let total = 0;
-  orders.forEach(order => {
-    order.products.forEach(prod => {
-      total += prod.quantity;
-    });
+function updateCartQuantity() {
+  let cartQuantity = 0;
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
   });
   const cartQuantityElem = document.querySelector('.js-cart-quantity');
-  if (cartQuantityElem) cartQuantityElem.textContent = total;
+  if (cartQuantityElem) cartQuantityElem.textContent = cartQuantity;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  updateCartQuantityToOrders();
+  updateCartQuantity();
   const ordersGrid = document.querySelector('.orders-grid');
   const orders = getOrders();
    console.log('Loaded orders from localStorage:', orders);
@@ -47,13 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
       html += `<div class='no-products'>No products found in this order.</div>`;
     } else {
       order.products.forEach(prod => {
-        // Use global products array if available
-        let product = null;
-        if (window.getProduct) {
-          product = window.getProduct(prod.productId);
-        } else if (window.products) {
-          product = window.products.find(p => p.id === prod.productId);
-        }
+        const product = getProduct(prod.productId);
         if (!product) return;
         html += `
           <div class="product-image-container">
@@ -137,5 +129,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-
-
