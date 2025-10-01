@@ -1,8 +1,7 @@
-import {cart, removeFromCart, updateDeliveryOption} from '../../data/cart.js';
+import {cart, removeFromCart, updateDeliveryOption, updateQuantity} from '../../data/cart.js';
 
 import {products, getProduct} from '../../data/products.js';
-import {formatCurrency} from '../utils/money.js';
-
+import {formatCurrency} from '../utils/currency.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
 
@@ -51,7 +50,7 @@ export function renderOrderSummary(){
             ${matchingProduct.name}
             </div>
             <div class="product-price">
-                $${(matchingProduct.priceCents/100).toFixed(2)}
+                ${formatCurrency(matchingProduct.priceCents)}
             </div>
             <div class="product-quantity">
                 <span>
@@ -92,7 +91,7 @@ export function renderOrderSummary(){
         );
             const priceString = deliveryOption.priceCents === 0
                 ? 'FREE'
-                : ` $${formatCurrency(deliveryOption.priceCents)} - `;
+                : `${formatCurrency(deliveryOption.priceCents)} - `;
 
                 const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
             html += `
@@ -143,12 +142,10 @@ export function renderOrderSummary(){
                 const currentQty = container.querySelector('.quantity-label').textContent;
                 let newQty = prompt('Enter new quantity:', currentQty);
                 newQty = parseInt(newQty);
-                if (newQty && newQty > 0) {
-                    import('../../data/cart.js').then(({updateQuantity}) => {
-                        updateQuantity(productId, newQty);
-                        renderOrderSummary();
-                        renderPaymentSummary();
-                    });
+                if (newQty && newQty > 0 && newQty < 1000) {
+                    updateQuantity(productId, newQty);
+                    renderOrderSummary();
+                    renderPaymentSummary();
                 }
             });
         });
